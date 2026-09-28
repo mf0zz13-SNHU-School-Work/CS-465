@@ -4,11 +4,11 @@
             <li>
                 <a href="index.html">Home</a>
             </li>
-            <li class="active">
+            <li{{#if selectedTravel}} class="active"{{/if}}>
                 <a href="/travel">Travel</a>
             </li>
-            <li>
-                <a href="rooms.html">Rooms</a>
+            <li{{#if selectedRooms}} class="active"{{/if}}>
+                <a href="/rooms">Rooms</a>
             </li>
             <li>
                 <a href="meals.html">Meals</a>
