@@ -1,0 +1,14 @@
+import { Component, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
+import { TripListing } from './trip-listing/trip-listing';
+
+@Component({
+  imports: [CommonModule, RouterOutlet, TripListing],
+  selector: 'app-root',
+  styleUrl: './app.css',
+  templateUrl: './app.html',
+})
+export class App {
+  protected readonly title = 'Travlr Getaways Admin!';
+}
