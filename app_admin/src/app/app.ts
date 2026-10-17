@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { TripListing } from './trip-listing/trip-listing';
+import { NavbarComponent } from './navbar/navbar';
 
 @Component({
-  imports: [CommonModule, RouterOutlet, TripListing],
+  imports: [CommonModule, RouterOutlet, NavbarComponent],
   selector: 'app-root',
   styleUrl: './app.css',
   templateUrl: './app.html',
