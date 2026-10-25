@@ -1,2 +1,26 @@
-# CS-465
-CS-465 Full Stack Development with MEAN
+# Travlr Getaways
+## CS 465 Full Stack Development
+
+### Architecture
+
+This project combined an Express customer facing website with an Angular single page application for administrators. The project started with static HTML pages, which required repeated code and separate updates whenever shared content changed. I then refactored the customer website to use Express routes, JavaScript controllers, and Handlebars templates that dynamically render trip information. The Express application generates pages on the server, while the Angular SPA changes views within the browser without requesting a complete page each time. Although an SPA can require a larger initial download, it provides a more interactive interface through reusable components, form validation, and client side routing.
+
+For the back end, I used MongoDB, a NoSQL database that fits naturally into the MEAN stack. MongoDB stores information as documents, which works well with the objects used throughout the application. Its flexible document structure also leaves room to support additional tour information as the application grows. Mongoose provided a consistent trip schema that defined the expected fields and data types. This allowed the application to use flexible document storage while maintaining structure for its trip records.
+
+### Functionality
+
+JSON is different from JavaScript because JSON is a data exchange format, while JavaScript is a programming language used to build application behavior. JSON provides a standardized way to represent information that both the front end and back end can read and process. In this application, the API returns trip records as JSON so the Angular services can retrieve the information and display it through the interface. The SPA also sends form data back to the API as JSON, which the server processes and stores through Mongoose.
+
+One example of refactoring was replacing repeated HTML headers and footers with shared Handlebars partials. This reduced duplicate code and allowed changes to shared navigation to be made in one place. Another example was moving API requests into the Angular trip data service instead of repeating the request logic in each component. The reusable trip card component also provided a consistent way to display each trip without writing a separate layout for every record. These changes made the application easier to maintain and reduced the chance of different parts of the interface behaving inconsistently.
+
+### Testing
+
+Testing a full stack application requires understanding both the HTTP method and the endpoint receiving the request. The endpoint identifies the resource or operation, while the method describes what the request should do. For example, `GET /api/trips` retrieves the trip listing, `GET /api/trips/:tripCode` retrieves a specific trip, `POST /api/trips` adds a trip, and `PUT /api/trips/:tripCode` updates an existing trip. Testing these operations involves checking the request data, response status, returned JSON, and resulting database record. After adding or updating information, another GET request helps verify that the information was stored correctly.
+
+Adding security introduces another layer because a failed request might result from authentication rather than a problem with the endpoint or database. The login endpoint validates credentials and returns a JSON Web Token that the client includes with protected requests. Testing therefore needs to cover valid credentials and tokens, as well as incorrect credentials, missing tokens, invalid tokens, and expired tokens. Negative testing also includes incomplete forms and invalid request data to check how the application handles unexpected input. Hiding administrative buttons in the interface improves the user experience, but the server must also verify authorization before allowing changes to stored information.
+
+### Reflection
+
+This course was my first substantial experience using JavaScript and HTML throughout a web application. Most of my previous work had been in the Microsoft development environment, including applications that used Razor Pages, so working with Express, Handlebars, and Angular gave me experience with a different approach. Using Angular for the first time was particularly valuable because it showed me how reusable components and services can support a more interactive interface. I also gained a better understanding of how a traditional back end connects to an SPA through a shared API.
+
+This experience supports my professional goals by expanding the tools and frameworks I can work with as a software developer. I developed skills in organizing a full stack application, creating API endpoints, integrating a database, reusing interface components, and applying authentication across the client and server. Building both sides of the application also helped me understand how to trace information through the system when troubleshooting problems. The project showed me how web applications can provide a rich interface without requiring a separate desktop installation, while central hosting can simplify delivering updates. These skills make me a more versatile candidate because I can apply my previous development experience while working with technologies outside the Microsoft environment.
